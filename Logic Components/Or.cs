@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace UseYourBrain.Logic_Components
 {
-    public class And : Symbol
+    public class Or : Symbol
     {
-        public And()
+
+        public Or()
         {
             Childs = new List<Symbol>();
             nChild = 2;
@@ -20,7 +21,7 @@ namespace UseYourBrain.Logic_Components
             Childs.Add(tmp);
         }
 
-        public And(Symbol left, Symbol right)
+        public Or(Symbol left, Symbol right)
         {
             Childs = new List<Symbol>();
             nChild = 2;
@@ -43,7 +44,7 @@ namespace UseYourBrain.Logic_Components
 
         public override bool GetTruthValue(Dictionary<char, bool> dictTruthValue)
         {
-            return Childs[0].GetTruthValue(dictTruthValue) && Childs[1].GetTruthValue(dictTruthValue);
+            return Childs[0].GetTruthValue(dictTruthValue) || Childs[1].GetTruthValue(dictTruthValue);
         }
     }
 }

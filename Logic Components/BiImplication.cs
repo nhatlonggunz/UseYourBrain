@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace UseYourBrain.Logic_Components
 {
-    public class And : Symbol
+    public class BiImplication : Symbol
     {
-        public And()
+
+        public BiImplication()
         {
             Childs = new List<Symbol>();
             nChild = 2;
@@ -20,7 +21,7 @@ namespace UseYourBrain.Logic_Components
             Childs.Add(tmp);
         }
 
-        public And(Symbol left, Symbol right)
+        public BiImplication(Symbol left, Symbol right)
         {
             Childs = new List<Symbol>();
             nChild = 2;

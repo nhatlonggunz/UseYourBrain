@@ -6,44 +6,42 @@ using System.Threading.Tasks;
 
 namespace UseYourBrain.Logic_Components
 {
-    public class And : Symbol
+    public class Not : Symbol
     {
-        public And()
+
+        public Not()
         {
             Childs = new List<Symbol>();
-            nChild = 2;
+            nChild = 1;
             type = SymbolType.operational;
 
             Variable tmp = new Variable('#');
             
             Childs.Add(tmp);
-            Childs.Add(tmp);
         }
 
-        public And(Symbol left, Symbol right)
+        public Not(Symbol operand)
         {
             Childs = new List<Symbol>();
-            nChild = 2;
+            nChild = 1;
             type = SymbolType.operational;
 
-            Childs.Add(left);
-            Childs.Add(right);
+            Childs.Add(operand);
         }
 
         public override void Operate(IEnumerable<Symbol> operands)
         {
-            Operate(operands.ElementAt(0), operands.ElementAt(1));
+            Operate(operands.ElementAt(0));
         }
 
-        public void Operate(Symbol First, Symbol Second)
+        public void Operate(Symbol First)
         {
             Childs[0] = First;
-            Childs[1] = Second;
         }
 
         public override bool GetTruthValue(Dictionary<char, bool> dictTruthValue)
         {
-            return Childs[0].GetTruthValue(dictTruthValue) && Childs[1].GetTruthValue(dictTruthValue);
+            return !Childs[0].GetTruthValue(dictTruthValue);
         }
     }
 }

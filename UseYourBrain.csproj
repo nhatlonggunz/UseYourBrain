@@ -46,15 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\AbstractionSyntaxTree.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic Components\Not.cs" />
+    <Compile Include="Logic Components\Implication.cs" />
+    <Compile Include="Logic Components\BiImplication.cs" />
+    <Compile Include="Logic Components\Or.cs" />
     <Compile Include="Logic Components\And.cs" />
+    <Compile Include="Logic Components\OpenParathesis.cs" />
     <Compile Include="Logic Components\Symbol.cs" />
     <Compile Include="Logic Components\SymbolType.cs" />
+    <Compile Include="Logic Components\Constant.cs" />
     <Compile Include="Logic Components\Variable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

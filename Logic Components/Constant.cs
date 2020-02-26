@@ -6,33 +6,26 @@ using System.Threading.Tasks;
 
 namespace UseYourBrain.Logic_Components
 {
-    public class Variable : Symbol
+    public class Constant : Symbol
     {
         public char Name { get; set; }
+        public bool Value { get; private set; }
 
-        public bool bounded { get; set; }
         //public protected SymbolType Type { get => type; }
 
-        public Variable(char name)
+        public Constant(char value)
         {
-            Name = name;
+            if(value != '1' || value != '0')
+            Name = value;
             nChild = 0;
-            bounded = false;
             type = SymbolType.primitive;
+
+            Value = (value == '1');
         }
 
         public override bool GetTruthValue(Dictionary<char, bool> dictTruthValue)
         {
-            try
-            {
-                bool value = dictTruthValue[Name];
-                return value;
-            }
-            catch(KeyNotFoundException)
-            {
-                Console.WriteLine("Variable {0} is not found", Name);
-                return false;
-            }
+            return Value;
         }
     }
 }

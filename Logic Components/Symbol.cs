@@ -9,12 +9,20 @@ namespace UseYourBrain.Logic_Components
     public abstract class Symbol
     {
         protected int nChild;
-        public abstract List<Symbol> Childs { get; set; }
+        public int nOperand { get => nChild; }
+        public List<Symbol> Childs { get; protected set; }
 
         protected SymbolType type;
 
         public SymbolType Type { get => type; }
 
-        public abstract bool GetTruthValue();
+        public virtual void Operate(IEnumerable<Symbol> operands)
+        {
+
+        }
+
+        public abstract bool GetTruthValue(Dictionary<char, bool> dictTruthValue);
+
+        //public virtual to
     }
 }
