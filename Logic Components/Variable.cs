@@ -8,14 +8,13 @@ namespace UseYourBrain.Logic_Components
 {
     public class Variable : Symbol
     {
-        public char Name { get; set; }
-
         public bool bounded { get; set; }
         //public protected SymbolType Type { get => type; }
 
         public Variable(char name)
+            :base()
         {
-            Name = name;
+            this.name = name;
             nChild = 0;
             bounded = false;
             type = SymbolType.primitive;
@@ -33,6 +32,25 @@ namespace UseYourBrain.Logic_Components
                 Console.WriteLine("Variable {0} is not found", Name);
                 return false;
             }
+        }
+
+        public override bool GetTruthValue(bool[] dictTruthValue)
+        {
+            try
+            {
+                bool value = dictTruthValue[Name - 'A'];
+                return value;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Variable {0} is not found", Name);
+                return false;
+            }
+        }
+
+        public override string ToString()
+        {
+            return this.name.ToString();
         }
     }
 }

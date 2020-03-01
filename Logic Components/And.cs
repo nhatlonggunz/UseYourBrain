@@ -10,6 +10,8 @@ namespace UseYourBrain.Logic_Components
     {
         public And()
         {
+            name = '&';
+
             Childs = new List<Symbol>();
             nChild = 2;
             type = SymbolType.operational;
@@ -22,6 +24,8 @@ namespace UseYourBrain.Logic_Components
 
         public And(Symbol left, Symbol right)
         {
+            name = '&';
+
             Childs = new List<Symbol>();
             nChild = 2;
             type = SymbolType.operational;
@@ -44,6 +48,16 @@ namespace UseYourBrain.Logic_Components
         public override bool GetTruthValue(Dictionary<char, bool> dictTruthValue)
         {
             return Childs[0].GetTruthValue(dictTruthValue) && Childs[1].GetTruthValue(dictTruthValue);
+        }
+
+        public override bool GetTruthValue(bool[] dictTruthValue)
+        {
+            return Childs[0].GetTruthValue(dictTruthValue) && Childs[1].GetTruthValue(dictTruthValue);
+        }
+
+        public override string ToString()
+        {
+            return "(" + Childs[0].ToString() + " & " + Childs[1].ToString() + ")";
         }
     }
 }

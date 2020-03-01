@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 using UseYourBrain.Logic_Components;
+using System.Diagnostics;
+using System.IO;
 
 namespace UseYourBrain.Calculator
 {
@@ -29,25 +31,46 @@ namespace UseYourBrain.Calculator
         /// </summary>
         private const string availableOperator = "~>=&|";
         private const string availableConstant = "01";
-        private const string availableVariable = "abcdefghijklmnopqrstuvwxyz";
+        private const string availableVariable = "abcdefghijklmnopqrstuvwxyz" +
+                                                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        private int Counter = 0;
+
+        public string Expression { get; set; }
+
+        public List<Char> listVariable { get; set; }
+        
+
+        public AbstractionSyntaxTree()
+        {
+            listVariable = new List<char>();
+        }
+        public AbstractionSyntaxTree(string expression)
+        {
+            listVariable = new List<char>();
+            this.Expression = expression;
+        }
 
         /// <summary>
         /// Build the Abstract Syntax Tree using prefix expression input
         /// </summary>
         /// <param name="expression">a prefix expression</param>
-        public void Build(string expression)
+        public void Build()
         {
             // Remove white space and separator (assume that operand has only 1 character)
-            expression = Regex.Replace(expression, @"\s+", "");
-            expression = Regex.Replace(expression, ",", "");
+            Expression = Regex.Replace(Expression, @"\s+", "");
+            Expression = Regex.Replace(Expression, ",", "");
+
+            // Mark the appeared variables
+            bool[] variableAppeared = new bool[100];
 
             // The stack used for building AST
             List<Symbol> utilityStack = new List<Symbol>();
 
-            for (int i = 0; i < expression.Length; i++)
+            for (int i = 0; i < Expression.Length; i++)
             {
                 // Close parethesis, the signal to trigger an operation
-                if (expression[i] == ')')  
+                if (Expression[i] == ')')  
                 {
                     List<Symbol> operands = new List<Symbol>();
                     
@@ -81,28 +104,30 @@ namespace UseYourBrain.Calculator
                     // pop the operands and open parenthesis from the stack
                     utilityStack.RemoveRange(j + 1, 1 + operands.Count);
                 }
-                else if (expression[i] == '(')
+                else if (Expression[i] == '(')
                 {
                     utilityStack.Add(new OpenParathesis());
                 }
                 // Variable
-                else if (availableVariable.Contains(expression[i]))
+                else if (availableVariable.Contains(Expression[i]))
                 {
-                    Variable var = new Variable(expression[i]);
+                    variableAppeared[Expression[i] - 'A'] = true;
+
+                    Variable var = new Variable(Expression[i]);
                     utilityStack.Add(var);
                 }
                 // Constant (True/False)
-                else if (availableConstant.Contains(expression[i]))
+                else if (availableConstant.Contains(Expression[i]))
                 {
-                    Constant cons = new Constant(expression[i]);
+                    Constant cons = new Constant(Expression[i]);
                     utilityStack.Add(cons);
                 }
                 // Operator
-                else if (availableOperator.Contains(expression[i]))
+                else if (availableOperator.Contains(Expression[i]))
                 {
                     Symbol currentOperator;
 
-                    switch (expression[i])
+                    switch (Expression[i])
                     {
                         case '&':
                             currentOperator = new And();
@@ -132,6 +157,7 @@ namespace UseYourBrain.Calculator
                 {
                     throw new Exception("Invalid symbol.");
                 }
+                // System.Windows.Forms.MessageBox.Show(i.ToString());
             }
 
             if(utilityStack.Count != 1)
@@ -140,6 +166,18 @@ namespace UseYourBrain.Calculator
             }
 
             Root = utilityStack[0];
+
+            for (char c = 'A'; c <= 'Z'; c++)
+            {
+                if (variableAppeared[c - 'A'])
+                    listVariable.Add(c);
+            }
+
+            for (char c = 'a'; c <= 'z'; c++)
+            {
+                if (variableAppeared[c - 'A'])
+                    listVariable.Add(c);
+            }
         }
 
         /// <summary>
@@ -154,5 +192,58 @@ namespace UseYourBrain.Calculator
             return Root.GetTruthValue(truthValues);
         }
 
+        public bool Evaluate(bool[] truthValues)
+        {
+            return Root.GetTruthValue(truthValues);
+        }
+
+        public void GenerateGraph(string fileName)
+        {
+            FileStream fs = new FileStream(fileName + ".dot",
+                                            FileMode.OpenOrCreate,
+                                            FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+
+            try
+            {
+                string content = "graph AST {";
+                sw.WriteLine(content);
+
+                GenerateGraphUtil(sw, Root);
+
+                sw.WriteLine("}");
+            }
+            catch(IOException)
+            {
+                return;
+            }
+            finally
+            {
+                if (sw != null) sw.Close();
+                if (fs != null) fs.Close();
+            }
+        }
+
+        public int GenerateGraphUtil(StreamWriter sw, Symbol u)
+        {
+            int uNum = Counter;
+            sw.WriteLine("\tnode{0} [label = \"{1}\"];", uNum, u.Name);
+
+            foreach(Symbol v in u.Childs)
+            {
+                Counter++;
+                int vNum = GenerateGraphUtil(sw, v);
+                sw.WriteLine("\tnode{0} -- node{1};", uNum, vNum);
+            }
+
+            return uNum;
+        }
+
+        public override string ToString()
+        {
+            if (Root == null)
+                this.Build();
+            return Root.ToString();
+        }
     }
 }

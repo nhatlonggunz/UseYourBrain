@@ -20,5 +20,9 @@ namespace UseYourBrain.Logic_Components
         {
             return false;
         }
+        public override bool GetTruthValue(bool[] dictTruthValue)
+        {
+            return false;
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace UseYourBrain.Logic_Components
 
         public Not()
         {
+            name = '~';
+
             Childs = new List<Symbol>();
             nChild = 1;
             type = SymbolType.operational;
@@ -22,6 +24,8 @@ namespace UseYourBrain.Logic_Components
 
         public Not(Symbol operand)
         {
+            name = '~';
+
             Childs = new List<Symbol>();
             nChild = 1;
             type = SymbolType.operational;
@@ -42,6 +46,16 @@ namespace UseYourBrain.Logic_Components
         public override bool GetTruthValue(Dictionary<char, bool> dictTruthValue)
         {
             return !Childs[0].GetTruthValue(dictTruthValue);
+        }
+
+        public override bool GetTruthValue(bool[] dictTruthValue)
+        {
+            return !Childs[0].GetTruthValue(dictTruthValue);
+        }
+
+        public override string ToString()
+        {
+            return "~" + Childs[0].ToString();
         }
     }
 }
