@@ -1,0 +1,3 @@
+The superclass is Abstract class Symbol
+- Type: String: "primitive"/"operation"/Quantifier
+- Type: enum

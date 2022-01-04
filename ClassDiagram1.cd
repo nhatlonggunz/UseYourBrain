@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UseYourBrain.Calculator.AbstractionSyntaxTree">
+    <Position X="2.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAgEAIICAEAAACAgAAAQCAgAAQQAUgABAAIAA=</HashCode>
+      <FileName>Calculator\AbstractionSyntaxTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Calculator.LogicCalculator">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAgAAAAAAAAABAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Calculator\Calculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Calculator.SemanticTableau">
+    <Position X="13.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAggQAAACAAAAAAAAAAAQAAhAAAAIAgBAAACAA=</HashCode>
+      <FileName>Calculator\SemanticTableau.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Calculator.TableauNode">
+    <Position X="15.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAIAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Calculator\SemanticTableau.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Calculator.TruthTable">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAABAAAAAAAAACAAAAAAQAAKAAAAACAAAAACAABAA=</HashCode>
+      <FileName>Calculator\TruthTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Form1" Collapsed="true">
+    <Position X="17.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAAIAA9ACAAQRACEACAEQBCIAAbAAQgAHECQIAAAII=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Program" Collapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.And" Collapsed="true">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\And.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.BiImplication" Collapsed="true">
+    <Position X="9.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\BiImplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Constant" Collapsed="true">
+    <Position X="17" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAEAA=</HashCode>
+      <FileName>Logic Components\Constant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Existential" Collapsed="true">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic Components\Existential.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Implication" Collapsed="true">
+    <Position X="13.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\Implication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Nand" Collapsed="true">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\Nand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Not" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\Not.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.OpenParathesis" Collapsed="true">
+    <Position X="10.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Logic Components\OpenParathesis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Or" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\Or.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Placeholder" Collapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Logic Components\Placeholder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Predicate" Collapsed="true">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAIAEAAAAAAAAAAAAAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\Predicate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Quantifier" Collapsed="true">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAIAEAAAQAAAAAAAAIAAAAAAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\Quantifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Symbol" Collapsed="true">
+    <Position X="14" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAAAAAAAAAAAIAAAAAAAAQAAAAFAAAAAQAAgAAAEAA=</HashCode>
+      <FileName>Logic Components\Symbol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.SymbolComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic Components\SymbolComparer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Universal" Collapsed="true">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic Components\Universal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UseYourBrain.Logic_Components.Variable" Collapsed="true">
+    <Position X="15.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Logic Components\Variable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="UseYourBrain.Logic_Components.SymbolType" Collapsed="true">
+    <Position X="16" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAEAAAAAABAAAAAAAAAAAAAAAIAAAAAAAAAACA=</HashCode>
+      <FileName>Logic Components\SymbolType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
